@@ -1,14 +1,16 @@
 {
-  "name": "ngX-Rocket",
-  "short_name": "ngX-Rocket",
-  "theme_color": "#488aff",
-  "background_color": "#488aff",
+  "name": "flosslab",
+  "short_name": "flosslab",
+  "theme_color": "#df0000",
+  "background_color": "#ffffff",
   "scope": "/",
   "start_url": "/",
   "display": "standalone",
-  "icons": [{
-    "src": "assets/ngx-rocket-logo.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }]
+  "icons": [
+    {
+      "src": "assets/flosslab-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

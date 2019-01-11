@@ -7,14 +7,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { environment } from '@env/environment';
-import { CoreModule } from '@app/core';
-import { SharedModule } from '@app/shared';
-import { HomeModule } from './home/home.module';
-import { ShellModule } from './shell/shell.module';
-import { AboutModule } from './about/about.module';
-import { LoginModule } from './login/login.module';
+import { HomeModule } from './modules/home/home.module';
+import { LoginModule } from './modules/login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoaderService } from '@app/shared/services/loader/loader.service';
+import { BaseService } from '@modules/core/base/base.service';
+import { AuthenticationGuard } from '@modules/core/authentication/authentication.guard';
+import { AuthenticationService } from '@modules/core/authentication/authentication.service';
+import { HttpService } from '@modules/core/http/http.service';
+import { CoreModule } from '@modules/core/core.module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   imports: [
@@ -26,15 +29,12 @@ import { AppRoutingModule } from './app-routing.module';
     NgbModule,
     CoreModule,
     SharedModule,
-    ShellModule,
     HomeModule,
-    AboutModule,
     LoginModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [
-  ],
+  providers: [HttpService, BaseService, LoaderService, AuthenticationGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

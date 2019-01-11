@@ -6,7 +6,8 @@ import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/core';
+import { Logger } from '@modules/core/logger.service';
+import { I18nService } from '@modules/core/i18n.service';
 
 const log = new Logger('App');
 
@@ -16,12 +17,13 @@ const log = new Logger('App');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private titleService: Title,
-              private translateService: TranslateService,
-              private i18nService: I18nService) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    private translateService: TranslateService,
+    private i18nService: I18nService
+  ) {}
 
   ngOnInit() {
     // Setup logger
@@ -30,7 +32,6 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
-
 
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
@@ -57,5 +58,4 @@ export class AppComponent implements OnInit {
         }
       });
   }
-
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ng-x-rocket",
+  "name": "flosslab-starter-kit",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,8 @@
     "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,scss}\"",
     "postinstall": "npm run prettier -s",
     "precommit": "pretty-quick --staged",
-    "generate": "ng generate"
+    "generate": "ng generate",
+    "npm-install": "npm install"
   },
   "dependencies": {
     "@angular/animations": "^7.0.0",
